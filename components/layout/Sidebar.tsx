@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -24,7 +25,7 @@ const navigation: NavItem[] = [
     href: "/campaigns",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
       </svg>
     ),
   },
@@ -69,54 +70,138 @@ const navigation: NavItem[] = [
 
 export default function Sidebar() {
   const pathname = usePathname();
-  
-  return (
-    <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
-      <div className="flex h-full flex-col">
-        <div className="flex h-16 items-center border-b border-gray-200 dark:border-gray-800 px-6">
-          <Link href="/dashboard" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-600 text-white font-bold text-lg">
-              LL
-            </div>
-            <span className="text-xl font-bold text-gray-900 dark:text-gray-100">Locale Letter</span>
-          </Link>
-        </div>
-        
-        <nav className="flex-1 space-y-1 px-4 py-6">
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("sidebarCollapsed");
+    if (saved !== null) {
+      setIsCollapsed(saved === "true");
+    }
+  }, []);
+
+  const toggleCollapse = () => {
+    const newState = !isCollapsed;
+    setIsCollapsed(newState);
+    localStorage.setItem("sidebarCollapsed", String(newState));
+    window.dispatchEvent(new Event("sidebarToggle"));
+  };
+
+  // Mobile bottom tab bar
+  if (isMobile) {
+    return (
+      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 md:hidden">
+        <div className="flex items-center justify-around h-16 px-2">
           {navigation.map((item) => {
             const isActive = pathname === item.href || pathname?.startsWith(item.href + "/");
             return (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`
-                  flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200
-                  ${isActive
-                    ? "bg-primary-50 text-primary-700 dark:bg-primary-900/20 dark:text-primary-400"
-                    : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
-                  }
-                `}
+                className={`flex flex-col items-center justify-center gap-1 px-2 py-1 rounded-lg transition-colors flex-1 min-w-0 ${
+                  isActive
+                    ? "text-primary-600 dark:text-primary-400"
+                    : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
+                }`}
               >
                 {item.icon}
-                {item.name}
+                <span className="text-[10px] font-medium truncate w-full text-center">{item.name}</span>
               </Link>
             );
           })}
-        </nav>
-        
-        <div className="border-t border-gray-200 dark:border-gray-800 p-4">
-          <div className="flex items-center gap-3 rounded-lg px-4 py-3">
-            <div className="h-8 w-8 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400 font-medium">
-              JD
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">John Doe</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 truncate">john@example.com</p>
-            </div>
+        </div>
+      </nav>
+    );
+  }
+
+  // Desktop sidebar
+  return (
+    <>
+      <aside
+        className={`fixed left-0 top-0 h-full bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 transition-all duration-300 z-40 ${
+          isCollapsed ? "w-20" : "w-64"
+        }`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Logo */}
+          <div className="flex items-center p-4 border-b border-gray-200 dark:border-gray-800">
+            {!isCollapsed && (
+              <div className="flex items-center gap-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-600 text-white font-bold text-sm">
+                  LL
+                </div>
+                <span className="font-bold text-gray-900 dark:text-gray-100">Locale Letter</span>
+              </div>
+            )}
+            {isCollapsed && (
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-600 text-white font-bold text-sm mx-auto">
+                LL
+              </div>
+            )}
+          </div>
+
+          {/* Navigation */}
+          <nav className="flex-1 overflow-y-auto p-4">
+            <ul className="space-y-2">
+              {navigation.map((item) => {
+                const isActive = pathname === item.href || pathname?.startsWith(item.href + "/");
+                return (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
+                        isActive
+                          ? "bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400"
+                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                      } ${isCollapsed ? "justify-center" : ""}`}
+                      title={isCollapsed ? item.name : undefined}
+                    >
+                      <span className="shrink-0">{item.icon}</span>
+                      {!isCollapsed && <span className="font-medium">{item.name}</span>}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+          
+          {/* Collapse button at bottom */}
+          <div className="border-t border-gray-200 dark:border-gray-800 p-4">
+            <button
+              onClick={toggleCollapse}
+              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition-colors ${
+                isCollapsed ? "justify-center" : ""
+              }`}
+              aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+            >
+              <svg
+                className={`w-5 h-5 transition-transform shrink-0 ${isCollapsed ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d={isCollapsed ? "M9 5l7 7-7 7" : "M15 19l-7-7 7-7"}
+                />
+              </svg>
+              {!isCollapsed && <span className="font-medium">Collapse</span>}
+            </button>
           </div>
         </div>
-      </div>
-    </aside>
+      </aside>
+    </>
   );
 }
-
