@@ -66,6 +66,7 @@ locale-letter/
 │   ├── contacts/          # Contact management page
 │   ├── content/           # Scraped content page
 │   ├── newsletters/       # Newsletter viewing page
+│   ├── settings/          # Settings and configuration page
 │   ├── layout.tsx         # Root layout
 │   ├── page.tsx           # Landing page
 │   └── globals.css        # Global styles
@@ -76,7 +77,8 @@ locale-letter/
 │   │   ├── Input.tsx
 │   │   ├── Badge.tsx
 │   │   ├── Table.tsx
-│   │   └── Modal.tsx
+│   │   ├── Modal.tsx
+│   │   └── Tabs.tsx
 │   └── layout/           # Layout components
 │       ├── Sidebar.tsx
 │       └── Header.tsx
@@ -112,6 +114,11 @@ See [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md) for complete design specificati
 - **/contacts** - Manage contact list
 - **/content** - View scraped content
 - **/newsletters** - View sent newsletters
+- **/settings** - Configuration and settings with tabs:
+  - Email Configuration (service provider, API keys, SMTP)
+  - API Keys (OpenAI, Lingo, Apify)
+  - Integrations (connected services, webhooks)
+  - Account (profile, password, preferences)
 
 ## 🎨 UI Components
 
@@ -133,6 +140,9 @@ Data table with header, rows, and cells
 
 ### Modal
 Overlay modal with customizable size
+
+### Tabs
+Tab navigation component with Tab and TabPanel sub-components
 
 ## 🌙 Dark Mode
 
@@ -172,6 +182,7 @@ See [LICENSE](./LICENSE) file for details.
   - `Badge` component with 5 variants and 2 sizes
   - `Table` component with header, row, and cell sub-components
   - `Modal` component with customizable sizes
+  - `Tabs` component with Tab and TabPanel sub-components for tabbed interfaces
 
 - **Layout Components**
   - `Sidebar` navigation with active state highlighting
@@ -185,6 +196,11 @@ See [LICENSE](./LICENSE) file for details.
   - Contacts page (`/contacts`) with search and contact management
   - Content page (`/content`) for viewing scraped articles
   - Newsletters page (`/newsletters`) for viewing sent newsletters
+  - Settings page (`/settings`) with tabbed interface for:
+    - Email configuration (service provider, API keys, SMTP settings)
+    - API keys management (OpenAI, Lingo, Apify)
+    - Integrations status and webhook configuration
+    - Account settings (profile, password, preferences)
 
 - **Design System**
   - Brand color palette (Primary blue scale)

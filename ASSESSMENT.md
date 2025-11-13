@@ -656,9 +656,15 @@ paths:
 ## 6) Frontend Requirements
 
 ● **User Account**: registration/login, view/edit account settings (name, organization), user profile page  
-● **Contacts**: list + import (CSV upload) + add/edit (name, email, phone, city, country) - filtered by current user, no topics assigned  
-● **Campaigns**: create/edit campaigns with:
+● **Settings/Configuration**:
 
+- Email service configuration (SendGrid, Resend, SMTP) with API keys, from email/name, domain verification
+- API keys management (OpenAI, Lingo, Apify) with secure storage
+- Integrations status and connection management
+- Webhook configuration for campaign events
+- Account preferences (notifications, dark mode, language)
+  ● **Contacts**: list + import (CSV upload) + add/edit (name, email, phone, city, country) - filtered by current user, no topics assigned  
+  ● **Campaigns**: create/edit campaigns with:
 - Campaign name and frequency settings
 - Add topics (each topic has: name, source URLs (RSS/blog), style preference)
 - Select contacts to include in campaign
