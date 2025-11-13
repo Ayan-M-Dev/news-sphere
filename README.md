@@ -1,9 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Locale Letter
 
-## Getting Started
+A modern, multilingual newsletter campaign platform that helps organizations create, localize, and send personalized newsletters to global audiences with AI-powered content generation and automatic translation.
 
-First, run the development server:
+## 🚀 Features
 
+- **Multilingual Support**: Automatically translate newsletters to your contacts' languages using Lingo
+- **AI-Powered Content**: Generate engaging newsletter content from your sources using OpenAI
+- **Campaign Management**: Create and manage newsletter campaigns with topics, sources, and style preferences
+- **Contact Management**: Import and manage contacts with location data for targeted campaigns
+- **Analytics & Insights**: Track performance by language, region, and engagement metrics
+- **Modern UI**: Clean, accessible, and responsive design with dark mode support
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Fonts**: Inter (primary), JetBrains Mono (monospace)
+- **UI Components**: Custom component library
+
+## 📦 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd locale-letter
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
@@ -14,23 +54,173 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+locale-letter/
+├── app/                    # Next.js App Router pages
+│   ├── dashboard/         # Dashboard page
+│   ├── campaigns/         # Campaign management pages
+│   ├── contacts/          # Contact management page
+│   ├── content/           # Scraped content page
+│   ├── newsletters/       # Newsletter viewing page
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Landing page
+│   └── globals.css        # Global styles
+├── components/            # React components
+│   ├── ui/               # Reusable UI components
+│   │   ├── Button.tsx
+│   │   ├── Card.tsx
+│   │   ├── Input.tsx
+│   │   ├── Badge.tsx
+│   │   ├── Table.tsx
+│   │   └── Modal.tsx
+│   └── layout/           # Layout components
+│       ├── Sidebar.tsx
+│       └── Header.tsx
+├── BRAND_GUIDELINES.md   # Brand guidelines and design system
+├── ASSESSMENT.md         # Project assessment document
+└── README.md            # This file
+```
 
-## Learn More
+## 🎨 Design System
 
-To learn more about Next.js, take a look at the following resources:
+The project follows a comprehensive design system with:
+- **Primary Color**: Blue (#0284c7)
+- **Typography**: Inter font family
+- **Spacing**: Consistent 4px base unit
+- **Components**: Reusable, accessible UI components
+- **Dark Mode**: Full support with system preference detection
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+See [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md) for complete design specifications.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📝 Available Scripts
 
-## Deploy on Vercel
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎯 Pages
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **/** - Landing page with hero section and features
+- **/dashboard** - Main dashboard with overview metrics
+- **/campaigns** - List and manage campaigns
+- **/campaigns/new** - Create new campaign
+- **/contacts** - Manage contact list
+- **/content** - View scraped content
+- **/newsletters** - View sent newsletters
+
+## 🎨 UI Components
+
+### Button
+Multiple variants: primary, secondary, outline, ghost, danger
+Sizes: sm, md, lg
+
+### Card
+Container component with padding options: none, sm, md, lg
+
+### Input
+Form input with label, error states, and icon support
+
+### Badge
+Status indicators with variants: default, success, warning, danger, info
+
+### Table
+Data table with header, rows, and cells
+
+### Modal
+Overlay modal with customizable size
+
+## 🌙 Dark Mode
+
+The application supports dark mode through:
+- System preference detection (`prefers-color-scheme`)
+- Automatic color adaptation
+- Consistent contrast ratios
+
+## ♿ Accessibility
+
+- WCAG AA contrast ratios
+- Keyboard navigation support
+- Focus states for all interactive elements
+- ARIA labels for icons
+- Semantic HTML structure
+
+## 📄 License
+
+See [LICENSE](./LICENSE) file for details.
+
+## 📚 Documentation
+
+- [Brand Guidelines](./BRAND_GUIDELINES.md) - Complete design system documentation
+- [Assessment](./ASSESSMENT.md) - Project requirements and specifications
+
+---
+
+## 📋 Changelog
+
+### [2025-01-XX] - Initial UI Implementation
+
+#### Added
+- **Component Library**
+  - `Button` component with 5 variants (primary, secondary, outline, ghost, danger) and 3 sizes
+  - `Card` component with configurable padding
+  - `Input` component with label, error states, and icon support
+  - `Badge` component with 5 variants and 2 sizes
+  - `Table` component with header, row, and cell sub-components
+  - `Modal` component with customizable sizes
+
+- **Layout Components**
+  - `Sidebar` navigation with active state highlighting
+  - `Header` component with search and notifications
+
+- **Pages**
+  - Landing page (`/`) with hero section, features, and CTA
+  - Dashboard page (`/dashboard`) with metrics cards and performance charts
+  - Campaigns list page (`/campaigns`) with data table
+  - New campaign page (`/campaigns/new`) with form for creating campaigns
+  - Contacts page (`/contacts`) with search and contact management
+  - Content page (`/content`) for viewing scraped articles
+  - Newsletters page (`/newsletters`) for viewing sent newsletters
+
+- **Design System**
+  - Brand color palette (Primary blue scale)
+  - Typography system (Inter + JetBrains Mono)
+  - Spacing scale and border radius standards
+  - Dark mode support
+  - Component variants and states
+
+- **Brand Guidelines**
+  - Complete brand guidelines document (`BRAND_GUIDELINES.md`)
+  - Color palette specifications
+  - Typography hierarchy
+  - Component usage guidelines
+  - Accessibility standards
+
+#### Changed
+- Updated `globals.css` with brand color variables (maintaining existing structure)
+- Updated `layout.tsx` with Inter and JetBrains Mono fonts
+- Updated metadata with Locale Letter branding
+
+#### Technical Details
+- All components are TypeScript with proper type definitions
+- Components follow DRY principles with minimal repetition
+- Consistent naming conventions and file structure
+- No functionality/logic - pure UI components only
+- Maintained existing global.css structure
+- Used existing path aliases (`@/*`)
+
+#### Design Highlights
+- Modern, clean interface with smooth transitions
+- Consistent spacing and typography
+- Professional color scheme
+- Responsive design (mobile-first approach)
+- Accessible components with proper focus states
+- Dark mode support throughout
+
+---
+
+**Note**: This is a UI-only implementation. No backend functionality, state management, or data fetching is included. All components are static and display-only.
