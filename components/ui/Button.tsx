@@ -31,7 +31,7 @@ export default function Button({
 
   return (
     <button
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} flex items-center justify-center gap-2 ${className}`}
+      className={`${baseStyles} ${variants[variant]} ${sizes[size]} inline-flex items-center justify-center gap-2 ${className}`}
       {...props}
     >
       {children}
