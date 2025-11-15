@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/providers/Toaster";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Locale Letter - Multilingual Newsletter Platform",
+  title: "News Sphere - Multilingual Newsletter Platform",
   description: "Create and manage multilingual newsletter campaigns with AI-powered content generation and localization",
 };
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );

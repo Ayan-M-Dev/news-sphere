@@ -1,16 +1,22 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+    <footer className="border-t border-border bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600 text-white font-bold shadow-md">
-                LL
-              </div>
-              <span className="text-lg font-bold text-gray-900 dark:text-gray-100">Locale Letter</span>
+              <Image 
+                src="/images/logo-w.png" 
+                alt="News Sphere" 
+                width={40} 
+                height={40} 
+                className="h-10 w-10 object-contain"
+              />
+              <span className="text-lg font-bold">News Sphere</span>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 max-w-md leading-relaxed">
+            <p className="text-sm text-muted-foreground mb-6 max-w-md leading-relaxed">
               Open source multilingual newsletter platform powered by AI and localization. Built for global communication.
             </p>
             <div className="flex items-center gap-4">
@@ -18,7 +24,7 @@ export default function Footer() {
                 href="https://github.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-muted rounded-lg"
                 aria-label="GitHub"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -29,20 +35,20 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-4 text-base">Product</h4>
+            <h4 className="font-semibold mb-4 text-base">Product</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="/dashboard" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                <a href="/dashboard" className="text-muted-foreground hover:text-primary transition-colors">
                   Features
                 </a>
               </li>
               <li>
-                <a href="/dashboard" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                <a href="/dashboard" className="text-muted-foreground hover:text-primary transition-colors">
                   Pricing
                 </a>
               </li>
               <li>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                   Documentation
                 </a>
               </li>
@@ -50,20 +56,20 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-4 text-base">Resources</h4>
+            <h4 className="font-semibold mb-4 text-base">Resources</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                   GitHub Repository
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                   License
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                   Contributing
                 </a>
               </li>
@@ -71,12 +77,12 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="pt-8 border-t border-gray-200 dark:border-gray-800">
+        <div className="pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <p className="text-sm text-gray-600 dark:text-gray-400 text-center md:text-left">
-              &copy; 2025 Locale Letter. Open source under MIT License.
+            <p className="text-sm text-muted-foreground text-center md:text-left">
+              &copy; 2025 News Sphere. Open source under MIT License.
             </p>
-            <p className="text-sm text-gray-600 dark:text-gray-400 text-center md:text-right font-medium">
+            <p className="text-sm text-muted-foreground text-center md:text-right font-medium">
               Built by Dedsec Team
             </p>
           </div>
