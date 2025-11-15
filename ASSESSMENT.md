@@ -120,8 +120,8 @@ These are not production-grade—use them exactly as defined here.
 
 ● **Frontend (React/Next.js + TypeScript)**  
  ○ Pages: Contacts (import/list), Topics & Sources (configure), Campaigns (create/view), Dashboard (metrics), Newsletter Preview  
- ○ Use fetch/axios + React Query (or SWR) for data fetching  
- ○ Multilingual UI: support UI in 2–3 languages (English, Hindi, Spanish)  
+ ○ Zustand
+○ Multilingual UI: support UI in 2–3 languages (English, Hindi, Spanish)  
  ○ Accessible forms/tables (labels, keyboard nav, focus states, ARIA attributes)  
  ○ File upload for CSV contact import
 

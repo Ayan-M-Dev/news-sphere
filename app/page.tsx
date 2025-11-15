@@ -8,10 +8,9 @@ import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-gradient-to-br from-primary-50 via-white to-primary-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
-      <Header />
-
-      <main className="flex-1">
+    <div>
+      <main className="flex-1 w-full">
+        <Header />
         <Hero />
         <Features />
         <HowItWorks />
