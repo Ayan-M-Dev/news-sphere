@@ -35,7 +35,7 @@ A modern, multilingual newsletter campaign platform that helps organizations cre
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd locale-letter
+cd news-sphere
 ```
 
 2. Install dependencies:
@@ -65,7 +65,7 @@ bun dev
 ## 📁 Project Structure
 
 ```
-locale-letter/
+news-sphere/
 ├── app/                    # Next.js App Router pages
 │   ├── dashboard/         # Dashboard page
 │   ├── campaigns/         # Campaign management pages
@@ -298,7 +298,7 @@ See [LICENSE](./LICENSE) file for details.
 #### Changed
 - Updated `globals.css` with brand color variables (maintaining existing structure)
 - Updated `layout.tsx` with Inter and JetBrains Mono fonts
-- Updated metadata with Locale Letter branding
+- Updated metadata with News Sphere branding
 
 #### Technical Details
 - All components are TypeScript with proper type definitions
