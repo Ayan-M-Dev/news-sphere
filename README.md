@@ -4,7 +4,7 @@ A modern, multilingual newsletter campaign platform that helps organizations cre
 
 ## 🚀 Features
 
-- **Multilingual Support**: Automatically translate newsletters to your contacts' languages using Lingo
+- **Multilingual Support**: Automatically translate newsletters to your contacts' languages using **Lingo** translation API
 - **AI-Powered Content**: Generate engaging newsletter content from your sources using OpenAI
 - **Campaign Management**: Create and manage newsletter campaigns with topics, sources, and style preferences
 - **Contact Management**: Import and manage contacts with location data for targeted campaigns
@@ -18,6 +18,7 @@ A modern, multilingual newsletter campaign platform that helps organizations cre
 - **Styling**: Tailwind CSS v4
 - **Fonts**: Inter (primary), JetBrains Mono (monospace)
 - **UI Components**: Custom component library
+- **Translation**: [Lingo](https://lingo.dev) - Multilingual translation API
 
 ## 📦 Getting Started
 
@@ -25,6 +26,9 @@ A modern, multilingual newsletter campaign platform that helps organizations cre
 
 - Node.js 18+ 
 - npm, yarn, pnpm, or bun
+- Lingo API key (required for translation functionality)
+
+> **Important**: After installation, you'll need to configure your API keys and email settings in the Settings page. See the [Configuration Settings](#⚙️-configuration-settings) section below for detailed setup instructions.
 
 ### Installation
 
@@ -54,7 +58,9 @@ pnpm dev
 bun dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+4. Configure your API keys (including Lingo) in the Settings page
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## 📁 Project Structure
 
@@ -116,9 +122,82 @@ See [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md) for complete design specificati
 - **/newsletters** - View sent newsletters
 - **/settings** - Configuration and settings with tabs:
   - Email Configuration (service provider, API keys, SMTP)
-  - API Keys (OpenAI, Lingo, Apify)
+  - API Keys (OpenAI, **Lingo** - required for translations, Apify)
   - Integrations (connected services, webhooks)
   - Account (profile, password, preferences)
+
+## ⚙️ Configuration Settings
+
+The Settings page (`/settings`) provides comprehensive configuration options organized into four main tabs:
+
+### Email Configuration
+
+Configure your email service provider for sending newsletters:
+
+- **Email Service Provider**
+  - Select provider: SendGrid, Resend, SMTP, or Amazon SES
+  - Enter API key for the selected provider
+  - Set "From Email" and "From Name" for outgoing newsletters
+  - Domain verification option for improved deliverability
+
+- **SMTP Configuration** (Alternative method)
+  - SMTP Host and Port settings
+  - SMTP Username and Password
+  - TLS/SSL encryption toggle
+  - Test connection functionality
+
+### API Keys
+
+Manage API keys for integrated services:
+
+- **OpenAI API** - Required for AI-powered content generation and summarization
+  - Get API key from [OpenAI Platform](https://platform.openai.com/api-keys)
+
+- **Gemini API** - Used for formatting newsletter content into HTML email templates
+  - Get API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+
+- **Lingo API** - **Required** for automatic translation of newsletter content
+  - Get API key from [Lingo Platform](https://lingo.dev)
+  - Essential for multilingual newsletter functionality
+
+- **Apify API** (Optional) - Used for web scraping content from sources
+  - Get API token from [Apify Console](https://console.apify.com/account/integrations)
+  - Leave empty to use built-in scraper
+
+### Integrations
+
+Configure webhook integrations for real-time notifications:
+
+- **Webhook Configuration**
+  - Set webhook URL for receiving campaign event notifications
+  - Supported events:
+    - Campaign sent
+    - Newsletter opened
+    - Link clicked
+    - Campaign failed
+  - Enable/disable webhook notifications
+  - Test webhook functionality
+
+### Account Settings
+
+Manage your account profile and preferences:
+
+- **Profile Information**
+  - First Name and Last Name
+  - Email address
+  - Organization name
+
+- **Change Password**
+  - Current password verification
+  - New password setup
+  - Password confirmation
+
+- **Preferences**
+  - Email notifications toggle
+  - Dark mode toggle
+  - Interface language selection (English, Spanish, Hindi)
+
+All settings include save functionality and test connection options where applicable.
 
 ## 🎨 UI Components
 
@@ -240,3 +319,4 @@ See [LICENSE](./LICENSE) file for details.
 ---
 
 **Note**: This is a UI-only implementation. No backend functionality, state management, or data fetching is included. All components are static and display-only.
+
