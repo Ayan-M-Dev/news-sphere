@@ -22,15 +22,15 @@ export default function CampaignViewPage({
   return (
     <div className="p-4 md:p-6">
       {/* Breadcrumbs */}
-      <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
+      <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-4 md:mb-6 overflow-x-auto">
         <Link
           href="/campaigns"
-          className="hover:text-foreground transition-colors"
+          className="hover:text-foreground transition-colors whitespace-nowrap"
         >
           Campaigns
         </Link>
         <svg
-          className="w-4 h-4"
+          className="w-4 h-4 shrink-0"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -42,7 +42,7 @@ export default function CampaignViewPage({
             d="M9 5l7 7-7 7"
           />
         </svg>
-        <span className="text-foreground font-medium">
+        <span className="text-foreground font-medium whitespace-nowrap">
           Weekly AI Newsletter
         </span>
       </nav>
@@ -122,15 +122,15 @@ export default function CampaignViewPage({
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="pt-6">
+          <CardContent className="pt-4 md:pt-6">
             <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">
+              <div className="min-w-0 flex-1">
+                <p className="text-xs md:text-sm text-muted-foreground truncate">
                   Newsletters Sent
                 </p>
-                <p className="text-2xl font-bold mt-1">24</p>
+                <p className="text-xl md:text-2xl font-bold mt-1">24</p>
               </div>
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+              <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 ml-2">
                 <svg
                   className="w-6 h-6 text-primary"
                   fill="none"
@@ -149,13 +149,15 @@ export default function CampaignViewPage({
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="pt-6">
+          <CardContent className="pt-4 md:pt-6">
             <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">Open Rate</p>
-                <p className="text-2xl font-bold mt-1">68%</p>
+              <div className="min-w-0 flex-1">
+                <p className="text-xs md:text-sm text-muted-foreground truncate">
+                  Open Rate
+                </p>
+                <p className="text-xl md:text-2xl font-bold mt-1">68%</p>
               </div>
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+              <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 ml-2">
                 <svg
                   className="w-6 h-6 text-primary"
                   fill="none"
@@ -180,13 +182,15 @@ export default function CampaignViewPage({
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="pt-6">
+          <CardContent className="pt-4 md:pt-6">
             <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">Click Rate</p>
-                <p className="text-2xl font-bold mt-1">12%</p>
+              <div className="min-w-0 flex-1">
+                <p className="text-xs md:text-sm text-muted-foreground truncate">
+                  Click Rate
+                </p>
+                <p className="text-xl md:text-2xl font-bold mt-1">12%</p>
               </div>
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+              <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 ml-2">
                 <svg
                   className="w-6 h-6 text-primary"
                   fill="none"
@@ -210,32 +214,34 @@ export default function CampaignViewPage({
       <Card>
         <CardContent className="p-0">
           <Tabs defaultValue="upcoming" className="w-full">
-            <TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0 h-auto">
-              <TabsTrigger
-                value="upcoming"
-                className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary"
-              >
-                Upcoming Newsletter
-              </TabsTrigger>
-              <TabsTrigger
-                value="scraped"
-                className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary"
-              >
-                Scraped Content
-              </TabsTrigger>
-              <TabsTrigger
-                value="activity"
-                className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary"
-              >
-                Activity
-              </TabsTrigger>
-              <TabsTrigger
-                value="settings"
-                className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary"
-              >
-                Campaign Settings
-              </TabsTrigger>
-            </TabsList>
+            <div className="border-b overflow-x-auto">
+              <TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0 h-auto">
+                <TabsTrigger
+                  value="upcoming"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-3 whitespace-nowrap"
+                >
+                  Upcoming Newsletter
+                </TabsTrigger>
+                <TabsTrigger
+                  value="scraped"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-3 whitespace-nowrap"
+                >
+                  Scraped Content
+                </TabsTrigger>
+                <TabsTrigger
+                  value="activity"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-3 whitespace-nowrap"
+                >
+                  Activity
+                </TabsTrigger>
+                <TabsTrigger
+                  value="settings"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-3 whitespace-nowrap"
+                >
+                  Campaign Settings
+                </TabsTrigger>
+              </TabsList>
+            </div>
 
             <div className="p-6">
               <TabsContent value="upcoming" className="mt-0">
@@ -256,7 +262,7 @@ export default function CampaignViewPage({
                       key={option}
                       className="border-2 hover:border-primary/50 transition-colors"
                     >
-                      <CardContent className="pt-6">
+                      <CardContent className="pt-4 md:pt-6">
                         <div className="flex items-start justify-between gap-4">
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-3">
@@ -390,7 +396,7 @@ export default function CampaignViewPage({
                     },
                   ].map((item, idx) => (
                     <Card key={idx}>
-                      <CardContent className="pt-6">
+                      <CardContent className="pt-4 md:pt-6">
                         <div className="flex items-start justify-between gap-4">
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-2">
@@ -611,7 +617,11 @@ export default function CampaignViewPage({
                           className="flex items-center justify-between p-3 bg-muted rounded-lg"
                         >
                           <span className="text-sm">{url}</span>
-                          <Button variant="ghost" size="sm">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="shrink-0"
+                          >
                             <svg
                               className="w-4 h-4"
                               fill="none"

@@ -71,12 +71,12 @@ export default function LoginPage() {
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
-                <Link
+                {/* <Link
                   href="/forgot-password"
                   className="text-sm text-primary hover:underline"
                 >
                   Forgot password?
-                </Link>
+                </Link> */}
               </div>
               <Input
                 id="password"
@@ -97,7 +97,7 @@ export default function LoginPage() {
             </Button>
           </form>
         </CardContent>
-        <CardFooter className="flex flex-col space-y-4">
+        {/* <CardFooter className="flex flex-col space-y-4">
           <div className="relative w-full">
             <div className="absolute inset-0 flex items-center">
               <span className="w-full border-t" />
@@ -114,7 +114,7 @@ export default function LoginPage() {
               Sign up
             </Link>
           </div>
-        </CardFooter>
+        </CardFooter> */}
       </Card>
     </div>
   );

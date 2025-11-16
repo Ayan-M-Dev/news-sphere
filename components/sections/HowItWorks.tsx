@@ -8,7 +8,7 @@ export default function HowItWorks() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
         {[
           {
             step: "01",
@@ -53,7 +53,7 @@ export default function HowItWorks() {
           {
             step: "03",
             title: "AI Processing",
-            desc: "Content is scraped, processed, and localized automatically",
+            desc: "Content is scraped from sources and processed with AI to generate engaging newsletters",
             icon: (
               <svg
                 className="w-6 h-6"
@@ -72,8 +72,28 @@ export default function HowItWorks() {
           },
           {
             step: "04",
-            title: "Send & Track",
-            desc: "Newsletters are sent and performance is tracked in real-time",
+            title: "Localization",
+            desc: "Using Lingo, content is automatically translated to each contact's language based on their location",
+            icon: (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+                />
+              </svg>
+            ),
+          },
+          {
+            step: "05",
+            title: "Send to Contacts",
+            desc: "Personalized newsletters are sent to each contact in their preferred language",
             icon: (
               <svg
                 className="w-6 h-6"
@@ -106,11 +126,26 @@ export default function HowItWorks() {
                 {item.desc}
               </p>
             </div>
-            {index < 3 && (
+            {index < 4 && (
               <div
-                className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-linear-to-r from-primary/20 to-transparent"
+                className="hidden lg:flex absolute top-10 left-full items-center w-full z-0"
                 style={{ width: "calc(100% - 5rem)", marginLeft: "5rem" }}
-              />
+              >
+                <div className="flex-1 h-px bg-gradient-to-r from-white/40 via-white/30 to-transparent"></div>
+                <svg
+                  className="w-4 h-4 text-white/50 shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </div>
             )}
           </div>
         ))}

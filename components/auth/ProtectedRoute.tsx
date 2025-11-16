@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/stores/authStore";
 import Cookies from "js-cookie";
@@ -12,16 +12,26 @@ interface ProtectedRouteProps {
 export default function ProtectedRoute({ children }: ProtectedRouteProps) {
   const router = useRouter();
   const { user, getCurrentUser } = useAuthStore();
-  const token = Cookies.get("token");
+  const [mounted, setMounted] = useState(false);
+  const [token, setToken] = useState<string | undefined>(undefined);
 
   useEffect(() => {
+    setMounted(true);
+    setToken(Cookies.get("token"));
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     const checkAuth = async () => {
-      if (!token) {
+      const currentToken = Cookies.get("token");
+
+      if (!currentToken) {
         router.push("/login");
         return;
       }
 
-      if (token && !user) {
+      if (currentToken && !user) {
         try {
           const currentUser = await getCurrentUser();
           if (!currentUser) {
@@ -42,7 +52,18 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
     };
 
     checkAuth();
-  }, [token, user, router, getCurrentUser]);
+  }, [mounted, token, user, router, getCurrentUser]);
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-muted-foreground">Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!token) {
     return (
