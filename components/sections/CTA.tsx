@@ -1,8 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { toast } from "sonner";
 
 export default function CTA() {
+  const handleStartFreeTrialClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    toast.info("Backend not deployed - Once deployed, will be accessible.");
+  };
+
   return (
     <section className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24">
       <Card className="bg-linear-to-br from-primary to-primary/90 text-primary-foreground border-0 shadow-2xl overflow-hidden relative">
@@ -20,7 +28,7 @@ export default function CTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-            <Link href="/dashboard" className="w-full sm:w-auto">
+            <Link href="/dashboard" className="w-full sm:w-auto" onClick={handleStartFreeTrialClick}>
               <Button
                 variant="secondary"
                 size="lg"

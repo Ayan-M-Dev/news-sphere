@@ -55,7 +55,14 @@
     padding: 0;
     width: 100%;
     overflow-x: hidden;
-}
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
 
 body {
     background-color: var(--color-background);
@@ -127,9 +134,22 @@ html, body {
   padding: 0;
   width: 100%;
   overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
 #__next {
   width: 100%;
   overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#__next::-webkit-scrollbar {
+  display: none;
 }
