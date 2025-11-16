@@ -1,4 +1,4 @@
-# Locale Letter
+# News Sphere
 
 A modern, multilingual newsletter campaign platform that helps organizations create, localize, and send personalized newsletters to global audiences with AI-powered content generation and automatic translation.
 
