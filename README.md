@@ -11,6 +11,22 @@ A modern, multilingual newsletter campaign platform that helps organizations cre
 - **Analytics & Insights**: Track performance by language, region, and engagement metrics
 - **Modern UI**: Clean, accessible, and responsive design with dark mode support
 
+## 🔗 Backend Repository
+
+The backend for News Sphere — handling APIs, campaign processing, translation workflows, email sending, authentication, and server-side logic — is maintained separately.
+
+### 📘 Backend Repository
+- **GitHub:** https://github.com/mdsaad2305/news-sphere-backend
+
+Clone or review the backend repository for:
+- API endpoints & routing
+- Database models & migrations
+- Environment variable configuration
+- Email service integrations (SendGrid, Resend, SES, SMTP)
+- Translation handling (Lingo API)
+- AI processing (OpenAI, Gemini)
+- Deployment instructions
+
 ## 🛠️ Tech Stack
 
 - **Framework**: Next.js 16 (App Router)
